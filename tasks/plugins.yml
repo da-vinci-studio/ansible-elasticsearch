@@ -18,5 +18,8 @@
 
 - name: Install plugins by name
   shell: bin/plugin install {{ item.url|default(item.name) }} chdir={{ elasticsearch_path_home }}
+  when: item.url is defined and item.url and
+    (item.delete is undefined or not item.delete) and
+    not item.name in elasticsearch_register_installed_plugins.stdout
   with_items: elasticsearch_plugins
   notify: [ 'Restart Elasticsearch' ]
