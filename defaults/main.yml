@@ -170,9 +170,6 @@ elasticsearch_jsonp_enabled: false
 
 
 # ---- Gateway ----
-
-elasticsearch_gateway_type: 'local'
-
 # These get dynamically set by ES, make sure you know what you're doing.
 #elasticsearch_gateway_recover_after_time: ?
 #elasticsearch_gateway_recover_after_nodes: ?
@@ -274,3 +271,7 @@ elasticsearch_logger_appender:
     layout:
       type: pattern
       conversionPattern: '[%d{ISO8601}][%-5p][%-25c] %m%n'
+
+# ---------- Scripts -------------
+script_inline: true
+script_indexed: true

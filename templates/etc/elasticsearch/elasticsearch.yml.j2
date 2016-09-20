@@ -242,11 +242,6 @@ http.enabled: {{ elasticsearch_http_enabled | lower }}
 # There are several types of gateway implementations. For more information, see
 # <http://elasticsearch.org/guide/en/elasticsearch/reference/current/modules-gateway.html>.
 
-# The default gateway type is the "local" gateway (recommended):
-#
-#gateway.type: local
-gateway.type: {{ elasticsearch_gateway_type }}
-
 # Settings below control how and when to start the initial recovery process on
 # a full cluster restart (to reuse as much local data as possible when using shared
 # gateway).
@@ -440,3 +435,8 @@ http.jsonp.enable: {{ elasticsearch_jsonp_enabled | lower }}
 {% endif %}
 {% endfor %}
 {% endif %}
+
+
+############################### Dynamic scripting #########################
+script.inline: {{ script_inline | lower }}
+script.indexed: {{ script_indexed | lower }}
